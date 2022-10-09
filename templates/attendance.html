@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends "index.html" %}  
+{% block content %}
+<h3>My Attendance Table:</h3>
+{% for table in tables %}
+    {{titles[loop.index]}}
+    {{ table|safe }}
+{% endfor %}    
+{% endblock %} 
