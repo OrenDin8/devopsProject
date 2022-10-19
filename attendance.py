@@ -29,7 +29,7 @@ for i in mergedCsvFiles:
             data['Name'][cur_name] += cur_duration
 
 df_output = pd.DataFrame.from_dict(data)
-
+print(df_output)
 
 #Add col Attendance Percentage 
 empty_col = pd.DataFrame(['']*len(df_output)) 
