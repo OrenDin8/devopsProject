@@ -1,9 +1,10 @@
 from flask import Flask, render_template
-import attendance
+from dotenv import load_dotenv
 import start_attendance
 app = Flask(__name__)
 
 df = start_attendance.df_output
+load_dotenv()
 
 @app.route("/home")
 @app.route("/")
