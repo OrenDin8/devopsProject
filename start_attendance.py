@@ -1,8 +1,12 @@
 from ast import Str
 import pandas as pd
+import connect_sftp
 
 #get the result from the attendance.py file
 path = "./attendance.csv"
+
+# exec the function to connect the sftp 
+connect_sftp.connect_to_sftp()
 
 #read the csv file        
 df = pd.read_csv(path)
