@@ -1,6 +1,10 @@
 from ast import Str
 import pandas as pd
+import attendance
 import connect_sftp
+
+
+
 
 #get the result from the attendance.py file
 path = "./attendance.csv"
