@@ -1,0 +1,12 @@
+version: 1
+web:
+  image: ./
+  ports:
+    - "5000:5000"
+  db:
+    image:mysql
+    environment:
+      MYSQL_DATABASE: ${database_env}
+      MYSQL_ROOT_USER: ${username_env
+      MYSQL_ROOT_PASSWORD: ${password_env}
+      MYSQL_ROOT_HOST: ${host_env}
