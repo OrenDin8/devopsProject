@@ -5,9 +5,12 @@ RUN apt-get update
 RUN apt-get install -y python
 RUN pip install flask 
 
+ENV FLASK_APP=app.py 
+ENV FLASK_RUN_HOST=0.0.0.0
+
 COPY requirements.txt requirements.txt
 COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 
+CMD python3 app.py 
