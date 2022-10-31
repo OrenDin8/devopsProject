@@ -12,7 +12,7 @@ df = start_attendance.df_output
 def home():
     return render_template("home.html")
 
-@app.route('/attentdance')
+@app.route('/attendance')
 def attendance():
     return render_template("attendance.html",  tables=[df.to_html(classes='data')], titles=df.columns.values)
 
@@ -26,4 +26,4 @@ def contact():
 
 
 if __name__ =='__main__':
-   app.run(debug=True)
+   app.run(debug=True, host='0.0.0.0', port=5000)
