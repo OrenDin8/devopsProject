@@ -5,10 +5,10 @@ import start_attendance
 
 df = start_attendance.df_output
 mydb = mysql.connector.connect(
-    host = 'localhost',
-    user = 'root',
-    password = 'og123456',
-    database = 'attendance'
+    host='localhost',
+    user='root',
+    password='og123456',
+    database='attendance'
 )
 my_cursor = mydb.cursor()
 #my_cursor.execute("CREATE DATABASE attendance")
@@ -34,4 +34,3 @@ my_cursor.execute(sql)
 result = my_cursor.fetchall()
 for i in result:
     print(i)
-
