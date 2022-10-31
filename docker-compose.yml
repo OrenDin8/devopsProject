@@ -1,12 +1,21 @@
-version: 1
-web:
-  image: ./
-  ports:
-    - "5000:5000"
+version: "3"
+services:
+  app:
+    build: ./
+    ports:
+     - "5000:5000"
+     
   db:
-    image:mysql
+    image: mysql:8.0.21
+    ports:
+     - "30000:3306"
+    
+    
     environment:
-      MYSQL_DATABASE: ${database_env}
-      MYSQL_ROOT_USER: ${username_env
-      MYSQL_ROOT_PASSWORD: ${password_env}
-      MYSQL_ROOT_HOST: ${host_env}
+     MYSQL_ROOT_HOST: ${host_env}
+     MYSQL_ROOT_USER: ${username_env}
+     MYSQL_ROOT_PASSWORD: ${password_env}
+     MYSQL_DATABASE: ${database_env}
+    volumes:
+     - ./db:/docker-entrypoint-initdb.d/:ro
+       
