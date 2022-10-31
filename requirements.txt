@@ -1,4 +1,7 @@
-python3
 flask
+jellyfish
 mysql-connector-python
+pandas
+python-dotenv
 pysftp
+
