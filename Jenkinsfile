@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         dockerhub_registry = "orendin8/devops_project"
-        dockerhub_credential = credentials('dockerhub')
+        dockerhub_credential = 'dockerhub'
         dockerImage = ''
         github_credential = "9YvQFinxGdQNZXu8/pmb/G3H0CXrpWFK3D7tzq2sUZs"
         github_url = "https://github.com/OrenDin8/devopsProject"
