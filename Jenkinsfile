@@ -3,13 +3,11 @@ pipeline {
     agent any
 
     environment {
-        dockerhub_registry = ''
+        dockerhub_registry = 'orendin8/devops_project'
         dockerhub_credential = credentials('dockerhub')
         dockerImage = ''
-        github_credential = ''
+        github_credential = '9YvQFinxGdQNZXu8/pmb/G3H0CXrpWFK3D7tzq2sUZs'
         github_url = 'https://github.com/OrenDin8/devopsProject'
-        test_cerdentials = 'jenkins-ec2-server-credentials'
-        prod_cerdentials = ''
     }
     stages {
         stage('Build Image') {
