@@ -28,15 +28,6 @@ pipeline {
                 }
             }
         }
-        stage('Pull from dockerHub') {
-            steps {
-               script {
-                    docker.withRegistry( '', dockerHubRegistryCredential ) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
         stage('Test') {
             steps {
                 sshagent(credentials: [test_cerdentials]) {
