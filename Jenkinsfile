@@ -48,5 +48,10 @@ pipeline {
                     }
                 }
             }
-        }
-    }
+        stage ('Production') {
+	        steps {
+	        	sh './deploy.sh'
+            }
+	    }
+      
+ }
