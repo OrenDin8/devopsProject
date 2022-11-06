@@ -30,9 +30,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sshagent(credentials: [test_cerdentials]) {
+                sshagent() {
                     sh """
-                        echo 'test server in action'
+                        echo 'Test stage ...'
                         ssh -o StrictHostKeyChecking=no -i /home/ec2-user/.ssh/jenkins-git
                         bash -x deploy.sh test
                         """
