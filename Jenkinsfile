@@ -19,16 +19,7 @@ pipeline {
                 }
             }
         }
-	stage('Test') {
-            steps {
-                sshagent() {
-                    sh """
-                        echo 'Test stage ...'
-                        bash -x deploy.sh test
-                        """.stripIndent()
-                }
-            }
-        }
+	
         stage('Push to dockerhub') {
             steps {
                script {
@@ -38,7 +29,16 @@ pipeline {
                 }
             }
         }
-   
+   	stage('Test') {
+            steps {
+                sshagent() {
+                    sh """
+                        echo 'Test stage ...'
+                        bash -x deploy.sh test
+                        """.stripIndent()
+                }
+            }
+        }
         stage ('Production') {
 	    steps {
 	    	sh """
