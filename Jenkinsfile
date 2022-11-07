@@ -25,7 +25,7 @@ pipeline {
                     sh """
                         echo 'Test stage ...'
                         bash -x deploy.sh test
-                        """
+                        """.stripIndent()
                 }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
 	    	sh """
                      echo 'Prodaction stage ...'
                      bash -x deploy.sh test
-                   """
+                   """.stripIndent()
             }
         }
     }
