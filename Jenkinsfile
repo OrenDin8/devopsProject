@@ -31,17 +31,17 @@ pipeline {
         }
    	stage('Test') {
             steps {
-                
-                    sh """
+                sshagent() {
+                    println sh """
                         echo 'Test stage ...'
                         bash -x deploy.sh test
                         """.stripIndent()
-                
+		}
             }
         }
         stage ('Production') {
 	    steps {
-	    	sh """
+	    	println sh """
                      echo 'Prodaction stage ...'
                      bash -x deploy.sh test
                    """.stripIndent()
