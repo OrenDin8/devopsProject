@@ -3,11 +3,12 @@
 MACHINE=$1
 
 echo "Deploying to ${MACHINE} starting"
-
+cd /home/ec2-user/.ssh
 echo "Copying the docker-compose file in $MACHINE machine"
-scp -i  "$/home/ec2-user/.ssh/id_rsa" "$/var/lib/jenkins/workspace/Final_Project/docker-compose.yml" ec2-user@172.31.85.71:~
+scp -i "id_rsa" "$/var/lib/jenkins/workspace/Final_Project/docker-compose.yml" \ 
+ec2-user@172.31.85.71:/home/ec2-user/
 
-scp -i "$/home/ec2-user/.ssh/id_rsa" ec2-user@172.31.85.71 << 'EOF'
+scp -i "id_rsa" ec2-user@172.31.85.71 << 'EOF'
   cp .env Final_Project/
   cd /home/ec2-user/Final_Project/
   docker-compose up -d --no-build 
