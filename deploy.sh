@@ -5,12 +5,12 @@ MACHINE=$1
 echo "Deploying to ${MACHINE} starting"
 
 echo "copying the project dir in $MACHINE machine"
-scp -o StrictHostKeyChecking=no -r "$/var/lib/jenkins/workspace/Final_Project" ec2-user@${MACHINE}:~
+scp -o StrictHostKeyChecking=no -r "$/var/lib/jenkins/workspace/Final_Project/docker-compose.yml" ec2-user@${MACHINE}:~
 
 ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
   cp .env Final_Project/
   cd /home/ec2-user/Final_Project/
-  docker-compose up --build -d
+  docker-compose up -d --no-build 
   sleep 20
   if [ "$MACHINE" == "test" ];
   then
