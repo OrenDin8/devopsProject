@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     dockerImage = docker.build dockerhub_registry + ":latest"
-		    sh ''' docker-compose up -d --build 
+		    sh """ docker-compose up -d --build 
 		    sleep 15
 	            HTTP_STATUS=`curl -o /dev/null -s -w "%{http_code}\n" http://localhost:5000/`
 		    docker-compose down 
@@ -27,6 +27,7 @@ pipeline {
 				echo "TEST: FAIL"
 				exit 1
 		      fi
+		      """
                 }
             }
         }
