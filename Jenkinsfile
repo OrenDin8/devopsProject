@@ -8,7 +8,7 @@ pipeline {
         dockerImage = ''
         github_credential = "9YvQFinxGdQNZXu8/pmb/G3H0CXrpWFK3D7tzq2sUZs"
         github_url = "https://github.com/OrenDin8/devopsProject"
-	test_cerdentials = "jenkins-ec2-server-credentials"
+	credatinal_test_stage = "Jenkins-SSH"
 
     }
     stages {
@@ -31,7 +31,7 @@ pipeline {
         }
    	stage('Test') {
             steps {
-                sshagent() {
+                sshagent(credentials: ['credatinal_test_stage']) {
                     println sh """
                         echo 'Test stage ...'
                         bash -x deploy.sh test
