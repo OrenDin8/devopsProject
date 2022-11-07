@@ -32,7 +32,7 @@ pipeline {
    	stage('Test') {
             steps {
                 sshagent(credentials: ['credatinal_test_stage']) {
-                    println sh """
+                     sh """
                         echo 'Test stage ...'
                         bash -x deploy.sh test
                         """.stripIndent()
@@ -41,7 +41,7 @@ pipeline {
         }
         stage ('Production') {
 	    steps {
-	    	println sh """
+	    	 sh """
                      echo 'Prodaction stage ...'
                      bash -x deploy.sh test
                    """.stripIndent()
