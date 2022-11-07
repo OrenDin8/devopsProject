@@ -31,12 +31,12 @@ pipeline {
         }
    	stage('Test') {
             steps {
-                sshagent() {
+                
                     sh """
                         echo 'Test stage ...'
                         bash -x deploy.sh test
                         """.stripIndent()
-                }
+                
             }
         }
         stage ('Production') {
