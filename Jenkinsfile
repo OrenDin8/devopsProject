@@ -19,6 +19,16 @@ pipeline {
                 }
             }
         }
+	stage('Test') {
+            steps {
+                sshagent() {
+                    sh """
+                        echo 'Test stage ...'
+                        bash -x deploy.sh test
+                        """
+                }
+            }
+        }
         stage('Push to dockerhub') {
             steps {
                script {
@@ -28,20 +38,13 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                sshagent() {
-                    sh """
-                        echo 'Test stage ...'
-                        ssh -o StrictHostKeyChecking=no -i /home/ec2-user/.ssh/jenkins-git
-                        bash -x deploy.sh test
-                        """
-                    }
-                }
-            }
+   
         stage ('Production') {
 	    steps {
-	    	sh './deploy.sh'
+	    	sh """
+                     echo 'Prodaction stage ...'
+                     bash -x deploy.sh test
+                   """
             }
         }
     }
