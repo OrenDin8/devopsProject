@@ -2,7 +2,7 @@
 
 MACHINE=$1
 
-echo "Deploying to $machine starting"
+echo "Deploying to ${MACHINE} starting"
 
 echo "copying the project dir in $MACHINE machine"
 scp -o StrictHostKeyChecking=no -r "$/var/lib/jenkins/workspace/Final_Project" ec2-user@${MACHINE}:~
