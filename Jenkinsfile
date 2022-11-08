@@ -42,7 +42,7 @@ pipeline {
         stage ('Production') {
 	    steps {
 	    	 sh """
-                     echo 'Prodaction stage ...'
+                     echo 'Production stage ...'
                      bash -x deploy.sh prod
                    """.stripIndent()
             }
