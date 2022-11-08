@@ -13,6 +13,7 @@ ec2-user@${MACHINE}:/home/ec2-user/
 scp -i "id_rsa" ec2-user@${MACHINE} << 'EOF'
   cp .env /Final_Project
   cd /home/ec2-user/Final_Project/
+  sudo docker system prune
   docker-compose up -d --no-build 
   sleep 25
   if [ "$MACHINE" == "test" ];
