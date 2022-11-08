@@ -3,7 +3,6 @@
 MACHINE=$1
 
 echo "Deploying to ${MACHINE} starting"
-echo $PWD
 cd /home/ec2-user/.ssh
 echo "Copying the docker-compose file in $MACHINE machine"
 scp -i "id_rsa" "$/var/lib/jenkins/workspace/Final_Project/docker-compose.yml" \ 
