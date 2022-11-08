@@ -9,7 +9,7 @@ pipeline {
         github_credential = "9YvQFinxGdQNZXu8/pmb/G3H0CXrpWFK3D7tzq2sUZs"
         github_url = "https://github.com/OrenDin8/devopsProject"
 	credatinal_test_stage = "jenkins_host_root"
-	#Jenkins-SSH
+
     }
     stages {
         stage('Build Image') {
