@@ -1,17 +1,18 @@
 #!/usr/bin/bash
 
 HOME_DIR="/home/ec2-user"
-JENKINS_PIPELINE_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
+JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
 
 echo "Deploying to ${MACHINE} starting"
 
-cd $HOME_DIR"/.ssh
+cd "$HOME_DIR"/.ssh
 
 echo "Copying the docker-compose file in $MACHINE machine"
+scp -i "id_rsa" "${JENKINS_WORKSPACE}"/docker-compose.yml" \ 
+ec2-user@${MACHINE}:/home/ec2-user/
 
-scp -o StrictHostKeyChecking=no "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
-sco -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
+scp -i "id_rsa" ec2-user@${MACHINE} << 'EOF'
   cp .env /Final_Project
   cd /home/ec2-user/Final_Project/
   sudo docker system prune
@@ -31,4 +32,3 @@ sco -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
 EOF
 
 echo "Deploying to $MACHINE server succedded"
-
