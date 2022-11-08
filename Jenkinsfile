@@ -31,7 +31,7 @@ pipeline {
         }
    	stage('Test') {
             steps {  
-                ssshagent(credentials:['jenkins_host_root']) {
+                sshagent(credentials:['jenkins_host_root']) {
                      sh """
                         echo 'Test stage ...'
                         bash -x deploy.sh test
