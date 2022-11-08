@@ -1,14 +1,16 @@
 #!/usr/bin/bash
 
+HOME_DIR="/home/ec2-user"
+JENKINS_PIPELINE_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
 
 echo "Deploying to ${MACHINE} starting"
 
-cd /home/ec2-user/.ssh
+cd $HOME_DIR"/.ssh
 
 echo "Copying the docker-compose file in $MACHINE machine"
-scp -i "id_rsa" "$/var/lib/jenkins/workspace/Final_Project/docker-compose.yml" \ 
-ec2-user@${MACHINE}:/home/ec2-user/
+scp -i "id_rsa" "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml" \ 
+ec2-user@${MACHINE}:/$HOME_DIR/
 
 scp -i "id_rsa" ec2-user@${MACHINE} << 'EOF'
   cp .env /Final_Project
