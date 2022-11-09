@@ -10,7 +10,7 @@ echo "copying the project dir in $MACHINE machine"
 scp -o StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE" ec2-user@${MACHINE}:~
 
 ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
-  cp .env.py Final_Project-8200dev/
+  cp .env Final_Project/
   cd /home/ec2-user/Final_Project/
   docker-compose up --no-build -d
   sleep 25
