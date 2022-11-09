@@ -15,14 +15,11 @@ ssh -tto StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
   sleep 20
   if [ "$MACHINE" == "test" ];
   then
-      HTTP=`curl --write-out "%{http_code}\n" --silent --output /dev/null "http://127.0.0.1:5000"`
-      echo $HTTP
-      if [ "$HTTP" == "200" ];
-      then
-  echo "Test succedded"
-      else
-  echo "Test failed"
-      fi
+      if curl -I "http://127.0.0.1:5000" 2>&1 | grep -w "200\|301" ; then
+        	echo "page is working"
+    	else
+        	echo "page is down"
+    	fi
   fi
 EOF
 
