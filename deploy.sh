@@ -11,7 +11,7 @@ scp -o StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.
 
 scp -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
   cd /home/ec2-user/
-  docker-compose up --no-build -d
+  docker-compose.yml up --no-build -d
   sleep 20
   if [ "$MACHINE" == "test" ];
   then
