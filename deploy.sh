@@ -4,13 +4,14 @@ HOME_DIR="/home/ec2-user"
 JENKINS_PIPELINE_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
 
-echo "Deploying to $machine starting"
+echo "Deploying to $machine start"
 
-echo "copying the project dir in $MACHINE machine"
+echo "Copying the docker compose file in $MACHINE machine"
 scp -o StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
 
 ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
   cd /home/ec2-user/
+  sudo docker system prune
   docker-compose up --no-build -d
   sleep 25
   if [ "$MACHINE" == "test" ];
