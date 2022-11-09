@@ -16,9 +16,8 @@ ec2-user@${MACHINE} \
 -o BatchMode=yes -o StrictHostKeyChecking=no \
 << EOF
 	cd /home/ec2-user/
-	docker-compose up d --build
-EOF
-
+	docker pull orendin8/devops_project:latest
+	docker-compose up d --no-build -d 
 if [ "$MACHINE" == "test" ];
   then
       if curl -I "http://127.0.0.1:5000" 2>&1 | grep -w "200\|301" ; then
