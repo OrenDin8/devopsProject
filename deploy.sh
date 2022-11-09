@@ -10,7 +10,7 @@ echo "copying the project dir in $MACHINE machine"
 scp -o StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
 
 ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
-  cd /home/ec2-user/Final_Project/
+  cd /home/ec2-user/
   docker-compose up --no-build -d
   sleep 25
   if [ "$MACHINE" == "test" ];
