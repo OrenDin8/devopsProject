@@ -9,7 +9,7 @@ echo "Deploying to $machine start"
 echo "Copying the docker compose file in $MACHINE machine"
 scp -o StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
 
-ssh -tto StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
+ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
   cd /home/ec2-user/
   docker-compose up --no-build -d
   sleep 20
