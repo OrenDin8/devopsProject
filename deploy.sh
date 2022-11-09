@@ -9,11 +9,14 @@ echo "Deploying to $machine start"
 echo "Copying the docker compose file in $MACHINE machine"
 scp -o StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
 
-scp -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
-  cd /home/ec2-user/
-  docker-compose.yml up --no-build -d
-  sleep 20
-  if [ "$MACHINE" == "test" ];
+ssh -i "id_rsa" \
+ec2-user@${MACHINE} \
+-o BatchMode=yes -o StrictHostKeyChecking=no \
+<< 'EOF'
+cd /home/ec2-user/
+docker-compose.yml up --no-build -d
+sleep 20
+if [ "$MACHINE" == "test" ];
   then
       if curl -I "http://127.0.0.1:5000" 2>&1 | grep -w "200\|301" ; then
         	echo "page is working"
