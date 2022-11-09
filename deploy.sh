@@ -1,18 +1,18 @@
 #!/usr/bin/bash
 
+HOME_DIR="/home/ec2-user"
+JENKINS_PIPELINE_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
 
-echo "Deploying to ${MACHINE} starting"
+echo "Deploying to $machine starting"
 
-echo "Copying the docker-compose file in $MACHINE machine"
-scp -o StrictHostKeyChecking=no "id_rsa" "$/var/lib/jenkins/workspace/Final_Project/docker-compose.yml" \ 
-ec2-user@${MACHINE}:/home/ec2-user/
+echo "copying the project dir in $MACHINE machine"
+scp -o StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE" ec2-user@${MACHINE}:~
 
-ssh -o StrictHostKeyChecking=no  ec2-user@${MACHINE} << 'EOF'
-  cp .env /Final_Project
+ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
+  cp .env.py Final_Project-8200dev/
   cd /home/ec2-user/Final_Project/
-  sudo docker system prune
-  docker-compose up -d --no-build 
+  docker-compose up --no-build -d
   sleep 25
   if [ "$MACHINE" == "test" ];
   then
