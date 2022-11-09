@@ -7,11 +7,11 @@ MACHINE=$1
 echo "Deploying to $machine start"
 
 echo "Copying the docker compose file in $MACHINE machine"
-scp -ot StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
+scp -o StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
 
 ssh -i ~/.ssh/id_rsa \
 ec2-user@${MACHINE} \
--ot BatchMode=yes -ot StrictHostKeyChecking=no \
+-o BatchMode=yes -o StrictHostKeyChecking=no \
 << 'EOF'
 cd /home/ec2-user/
 docker-compose.yml up --no-build -d
