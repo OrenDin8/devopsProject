@@ -9,7 +9,7 @@ echo "Deploying to $machine start"
 echo "Copying the docker compose file in $MACHINE machine"
 scp -o StrictHostKeyChecking=no -r "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
 
-ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
+ssh -tt StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF'
   cd /home/ec2-user/
   sudo docker system prune
   docker-compose up --no-build -d
