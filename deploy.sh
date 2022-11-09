@@ -1,21 +1,24 @@
 #!/usr/bin/bash
 
 HOME_DIR="/home/ec2-user"
-JENKINS_PIPELINE_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
+JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
 
-echo "Deploying to $machine start"
+echo "Deploying to ${MACHINE} start"
 
 echo "Copying the docker compose file in $MACHINE machine"
-scp -o StrictHostKeyChecking=no "$JENKINS_PIPELINE_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
+scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
+
+#command: ssh your_username@host_ip_address 
 
 ssh -i ~/.ssh/id_rsa \
 ec2-user@${MACHINE} \
 -o BatchMode=yes -o StrictHostKeyChecking=no \
-<< 'EOF'
-cd /home/ec2-user/
-docker-compose.yml up --no-build -d
-sleep 20
+<< EOF
+	cd /home/ec2-user/
+	docker-compose up d --build
+EOF
+
 if [ "$MACHINE" == "test" ];
   then
       if curl -I "http://127.0.0.1:5000" 2>&1 | grep -w "200\|301" ; then
