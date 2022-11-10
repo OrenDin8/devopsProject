@@ -11,7 +11,7 @@ scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-u
 
 #command: ssh your_username@host_ip_address 
 
-ssh -o -T StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF' 
+ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF' 
 	cd /home/ec2-user/
 	docker pull orendin8/devops_project:latest
 	docker-compose up --no-build -d 
