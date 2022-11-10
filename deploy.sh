@@ -11,12 +11,10 @@ scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-u
 
 #command: ssh your_username@host_ip_address 
 
-ssh -i ~/.ssh/id_rsa ec2-user@${MACHINE} \
--o BatchMode=yes -o StrictHostKeyChecking=no \
-<< EOF
+ssh -o -T StrictHostKeyChecking=no ec2-user@${MACHINE} << 'EOF' 
 	cd /home/ec2-user/
 	docker pull orendin8/devops_project:latest
-	docker-compose up d --no-build -d 
+	docker-compose up --no-build -d 
 if [ "$MACHINE" == "test" ];
   then
       if curl -I "http://127.0.0.1:5000" 2>&1 | grep -w "200\|301" ; then
