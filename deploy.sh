@@ -11,8 +11,7 @@ scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-u
 
 #command: ssh your_username@host_ip_address 
 
-ssh -i ~/.ssh/id_rsa \
-ec2-user@${MACHINE} \
+ssh -i ~/.ssh/id_rsa ec2-user@${MACHINE} \
 -o BatchMode=yes -o StrictHostKeyChecking=no \
 << EOF
 	cd /home/ec2-user/
