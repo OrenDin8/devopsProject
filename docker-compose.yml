@@ -11,11 +11,7 @@ services:
      - "30000:3306"
     
     
-    environment:
-     MYSQL_ROOT_HOST: ${host_env}
-     MYSQL_ROOT_USER: ${username_env}
-     MYSQL_ROOT_PASSWORD: ${password_env}
-     MYSQL_DATABASE: ${database_env}
+    environment:./.env
     volumes:
      - ./db:/docker-entrypoint-initdb.d/:ro
        
