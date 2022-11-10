@@ -11,7 +11,7 @@ services:
      - "30000:3306"
     
     
-    environment:./.env
+    environment:/app/.env
     volumes:
      - ./db:/docker-entrypoint-initdb.d/:ro
        
