@@ -11,9 +11,8 @@ scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-u
 
 ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << EOF
  cd /home/ec2-user/
- cp "$JENKINS_WORKSPACE"/.env /home/ec2-user/
  docker pull orendin8/devops_project:latest
- docker-compose up build -d 
+ docker-compose up --build -d 
  sleep 25
  if [ "$MACHINE" == "test" ];
   then
