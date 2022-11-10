@@ -9,9 +9,7 @@ services:
     image: mysql:8.0.21
     ports:
      - "30000:3306"
-    
-    
-    environment:/app/.env
+   
     volumes:
      - ./db:/docker-entrypoint-initdb.d/:ro
        
