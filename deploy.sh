@@ -7,7 +7,7 @@ MACHINE=$1
 echo "Deploying to ${MACHINE} start"
 
 echo "Copying the docker compose file in $MACHINE machine"
-scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE" ec2-user@${MACHINE}:~
+scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
 echo "copied files"
 ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << EOF
  cd /home/ec2-user/
