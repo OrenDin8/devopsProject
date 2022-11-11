@@ -10,7 +10,7 @@ echo "Copying the docker compose file in $MACHINE machine"
 scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
 
 ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << EOF
- cp .env JENKINS_WORKSPACE
+ cp .env "$JENKINS_WORKSPACE"/.env
  cd /home/ec2-user/
  docker pull orendin8/devops_project:latest
  docker-compose up --build -d 
