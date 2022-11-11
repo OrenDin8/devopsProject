@@ -6,6 +6,7 @@ pipeline {
         dockerhub_registry = "orendin8/devops_project"
         dockerhub_credential = 'dockerhub'
         dockerImage = ''
+	dockerTagImage = ''
         github_credential = "9YvQFinxGdQNZXu8/pmb/G3H0CXrpWFK3D7tzq2sUZs"
         github_url = "https://github.com/OrenDin8/devopsProject"
 	credatinal_test_stage = "jenkins_host_root"
@@ -15,7 +16,8 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    dockerImage = docker.build dockerhub_registry + ":latest"
+                    dockerImage = docker.build(dockerhub_registry + ":latest", "/.app")
+		    dockerTagImage = docker.build(dockerhub_registry +  ":${BUILD_NUMBER}", "./app")
                 }
             }
         }
