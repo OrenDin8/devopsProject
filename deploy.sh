@@ -12,6 +12,7 @@ scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-u
 ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} << EOF
  cp .env "$JENKINS_WORKSPACE"/.env
  cd /home/ec2-user/
+ sudo docker system prune 
  docker pull orendin8/devops_project:latest
  docker-compose up --build -d 
  sleep 25 
