@@ -1,4 +1,4 @@
-</h1> Final project - Oren Gadmo - DevOps Bootcamp <h1/>
+</strong> Final project - Oren Gadmo - DevOps Bootcamp <strong/>
 Let me to inturduce to my final project for the Bynet and 8200 course!
 The main idea is based on an output from the "Webex" application that analyzed the attendance of the students in each lesson.
 In addition, the application calculated the length of time the students were in class, the number of devices they connected to, the type of devices, emails, etc.
