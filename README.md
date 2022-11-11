@@ -8,6 +8,7 @@
 
 </div>
 In order to build it I used several Technologies:
+<li>
 Python3
 CSS3 
 Bootstrap
@@ -19,7 +20,7 @@ Docker
 Jenkins
 AWS
 Virtualbox - Ubuntu
-
+</li>
 Installation
 Use the command cd to get into the docker-compose direcory location and write the command:
 docker-compose up --build
