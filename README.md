@@ -7,19 +7,18 @@
     the student's name, the accumulated number of minutes and the general percentage of attendance in all classes.</strong>
 
 </div>
-In order to build it I used several Technologies:
-<li>
-Python3
-CSS3 
-Bootstrap
-HTML + Jinja2
-Javascript
-MYSQL
-Flask
-Docker
-Jenkins
-AWS
-Virtualbox - Ubuntu
+<h3>In order to build it I used several Technologies:</h3>
+<li>Python3 </li>
+<li>CSS3 </li> 
+<li>Bootstrap </li>
+<li>HTML + Jinja2 </li>
+<li>Javascript </li>
+<li>MYSQL </li>
+<li>Flask </li>
+<li>Docker </li>
+<li>Jenkins </li>
+<li>AWS </li>
+<li>Virtualbox - Ubuntu </li>
 </li>
 Installation
 Use the command cd to get into the docker-compose direcory location and write the command:
