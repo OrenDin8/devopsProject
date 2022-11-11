@@ -37,10 +37,10 @@ In the app.py file I used jinja and HTML to decore and writh the index.html as a
 <h3>sftp_csv.py</h3>
 <p>Simply connect to remote server with secure transfer files and copy all the csv files fron the remote course machine into the our container.</p>
 
-<h3>attendance.py<h3>
+<h3>attendance.py</h3>
 <p>The main file in the project,I'ts fill All the calcutions, Contains all the actions required to create the final attendance file. Union of students with two email addresses, or students who entered the class with two or more devices, deletion of duplicates, etc.
 </p>
-<h3>.env file</he>
+<h3>.env file</h3>
 <p>Contain environment variables , and secure deatails.</p> 
 <h3>deploy.sh:</h3>
 <p>Usage: deploy.sh [test|prod]
