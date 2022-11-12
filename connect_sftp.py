@@ -15,6 +15,7 @@ def connect_to_sftp():
 	#print("connected to sftp server!")
         # dowmload remote folder files to local folder
         sftp.get_d("/var/tmp/csv_files/", localdir="./", preserve_mtime=True)
+connect_to_sftp()
 
        
        
