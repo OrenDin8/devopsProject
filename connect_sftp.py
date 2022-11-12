@@ -12,7 +12,7 @@ load_dotenv()
 
 # connection parameters
 def connect_to_sftp():
-   with pysftp.Connection(cnopts=cnopts, host='185.164.16.144', username='root', password='123456') as sftp:
+   with pysftp.Connection(cnopts=cnopts, host='185.164.16.144', username='oreng', password='123456') as sftp:
 	#print("connected to sftp server!")
         # dowmload remote folder files to local folder
         sftp.get_d("/var/tmp/csv_files/", localdir="./", preserve_mtime=True)
