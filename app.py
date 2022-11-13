@@ -1,6 +1,9 @@
 from venv import create
 from flask import Flask, render_template
 import start_attendance
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 

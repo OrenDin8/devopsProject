@@ -1,8 +1,10 @@
 from ast import Str
 import pandas as pd
 import connect_sftp
+import os
+from dotenv import load_dotenv
 
-
+load_dotenv()
 #get the result from the attendance.py file
 path = "./attendance.csv"
 

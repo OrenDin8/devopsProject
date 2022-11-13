@@ -2,6 +2,7 @@ version: "3"
 services:
   app:
     build: ./
+    image: orendin8/devops_project
     ports:
      - "5000:5000"
      
@@ -10,12 +11,12 @@ services:
     ports:
      - "30000:3306"
     
-    
     environment:
-     MYSQL_ROOT_HOST: ${host_env}
-     MYSQL_ROOT_USER: ${username_env}
-     MYSQL_ROOT_PASSWORD: ${password_env}
-     MYSQL_DATABASE: ${database_env}
+     MYSQL_ROOT_HOST: ${mysql_host}
+     MYSQL_ROOT_USER: ${mysql_username}
+     MYSQL_ROOT_PASSWORD: ${mysql_password}
+     MYSQL_DATABASE: ${mysql_database}
     volumes:
      - ./db:/docker-entrypoint-initdb.d/:ro
+     
        
