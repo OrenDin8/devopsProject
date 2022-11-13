@@ -72,8 +72,8 @@ image.png
     if it is works it will runs curl command to check if my app is available.
 </p>
 <h3>Screenshots</h3>
-![ScreenShot](https://raw.github.com/OrenDin8/devops_project/main/Screenshots/home.jpg)
-![ScreenShot](https://raw.github.com/OrenDin8/devops_project/main/Screenshots/attendance_table.jpg)
-![ScreenShot](https://raw.github.com/OrenDin8/devops_project/main/Screenshots/contact.jpg)
-![ScreenShot](https://raw.github.com/OrenDin8/devops_project/main/Screenshots/about.jpg)
+![ScreenShot](https://github.com/OrenDin8/devopsProject/blob/main/Screenshots/home.jpg)
+![ScreenShot](https://github.com/OrenDin8/devopsProject/blob/main/Screenshots/attendance_table.jpg)
+![ScreenShot](https://github.com/OrenDin8/devopsProject/blob/main/Screenshots/contact.jpg)
+![ScreenShot](https://github.com/OrenDin8/devopsProject/blob/main/Screenshots/about.jpg)
 
