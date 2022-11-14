@@ -3,8 +3,6 @@ services:
   app:
     build: ./
     image: orendin8/devops_project
-    links:
-      - mysql
     ports:
      - "5000:5000"
     env_file:
