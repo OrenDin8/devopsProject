@@ -10,7 +10,7 @@ PROD=3.86.208.144
 if [[ "$MACHINE" == TEST ]]
 then 
    IP_MACHINE=$TEST
-elif [[ "$MACHINE" == PROD ]]
+else
    IP_MACHINE=$PROD
 fi
  
