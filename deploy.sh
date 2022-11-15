@@ -3,7 +3,7 @@
 HOME_DIR="/home/ec2-user"
 JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
-TEST=54.236.170.79
+TEST=44.212.56.27
 
 echo "Deploying to ${MACHINE} start"
 
