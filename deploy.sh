@@ -3,12 +3,16 @@
 HOME_DIR="/home/ec2-user"
 JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
-IP_MACHINE="0.0.0.0"
+IP_MACHINE=''
+TEST=54.236.170.79
+PROD=3.86.208.144
 
-if [ "$MACHINE" == "test" ];
- then IP_MACHINE="54.236.170.79"
-else 
- IP_MACHINE="3.86.208.144"
+if [[ "$MACHINE" == TEST ]]
+then 
+   IP_MACHINE=$TEST
+elif [[ "$MACHINE" == PROD ]]
+   IP_MACHINE=$PROD
+fi
  
 echo "Deploying to ${MACHINE} start"
 
