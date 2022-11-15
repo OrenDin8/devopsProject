@@ -3,7 +3,13 @@
 HOME_DIR="/home/ec2-user"
 JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
+IP_MACHINE = 0.0.0.0
 
+if [ "$MACHINE" == "test" ]
+ then IP_MACHINE = 54.236.170.79
+else 
+ IP_MACHINE =  3.86.208.144
+ 
 echo "Deploying to ${MACHINE} start"
 
 echo "Copying the docker compose file in $MACHINE machine"
@@ -12,7 +18,7 @@ scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-u
 ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 30"
 if [ "$MACHINE" == "test" ];
  then
-     if curl -I "http://${MACHINE}:5000" 2>&1 | grep -w "200\|301" ;
+     if curl -I "http://${IP_MACHINE}:5000" 2>&1 | grep -w "200\|301" ;
       then
        	echo "The website is up "
    	  else
