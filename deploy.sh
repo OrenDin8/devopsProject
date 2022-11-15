@@ -5,7 +5,7 @@ JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
 IP_MACHINE="0.0.0.0"
 
-if [ "$MACHINE" == "test" ]
+if [ "$MACHINE" == "test" ];
  then IP_MACHINE="54.236.170.79"
 else 
  IP_MACHINE="3.86.208.144"
