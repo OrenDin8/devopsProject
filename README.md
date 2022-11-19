@@ -5,7 +5,7 @@
         The main idea is based on an output from <a href="https://www.webex.com/">"Webex"</a>        application that analyzed the attendance of the students in each lesson.
         In addition, the application calculated the length of time the students were in class, the number of devices they connected to, the type of devices, emails, etc.
         The task was to filter a table of all the students with the following details:
-        the student's name, the accumulated number of minutes and the general percentage of attendance in all classes.
+        The student's name, the accumulated number of minutes and the general percentage of attendance in all classes.
     </strong>
     </p>
 </div>
