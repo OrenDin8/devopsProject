@@ -55,7 +55,6 @@
 <p>
     Simply connect to remote server with secure transfer files and copy all the csv files fron the remote course machine into the our container.
 </p>
-image.png
 <h3>attendance.py</h3>
 <p>
     The main file in the project,I'ts fill All the calcutions, Contains all the actions required to create the final attendance file. Union of students with two email addresses, or students who entered the class with two or more devices, deletion of duplicates, etc.
@@ -71,9 +70,3 @@ image.png
     Also it's check if the current server is working.
     if it is works it will runs curl command to check if my app is available.
 </p>
-<h3>Screenshots</h3>
-![ScreenShot](https://github.com/OrenDin8/devopsProject/blob/main/Screenshots/home.jpg)
-![ScreenShot](https://github.com/OrenDin8/devopsProject/blob/main/Screenshots/attendance_table.jpg)
-![ScreenShot](https://github.com/OrenDin8/devopsProject/blob/main/Screenshots/contact.jpg)
-![ScreenShot](https://github.com/OrenDin8/devopsProject/blob/main/Screenshots/about.jpg)
-
