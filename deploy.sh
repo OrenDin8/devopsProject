@@ -1,16 +1,23 @@
+
+
 #!/usr/bin/bash
 
 HOME_DIR="/home/ec2-user"
 JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
-TEST=44.204.24.143    
+if [ "$MACHINE" == 'test' ];
+ then 
+     MACHINE='ec2-44-201-110-248.compute-1.amazonaws.com'
+	 echo "Deploying to test start"
+else 
+     MACHINE='ec2-54-163-62-126.compute-1.amazonaws.com'
+	 echo "Deploying to production start"
 
-echo "Deploying to ${MACHINE} start"
-
+fi
 echo "Copying the docker compose file in $MACHINE machine"
 scp -o StrictHostKeyChecking=no -r "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@${MACHINE}:~
 
-ssh -o StrictHostKeyChecking=no ec2-user@${MACHINE} "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 30"
+ssh -i Devops-course.pem ec2-user@{MACHINE} "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 30"
 
 if [ "$MACHINE" == "test" ];
  then
@@ -21,3 +28,5 @@ if [ "$MACHINE" == "test" ];
    	fi
 fi
 echo "Deploying to $MACHINE server succedded"
+
+
