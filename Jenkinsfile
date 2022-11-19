@@ -45,7 +45,7 @@ pipeline {
 	    steps {
 	    	 sh """
                      echo 'Production stage ...'
-                     bash -x deploy.sh prod
+                     bash -x deploy.sh Production
                    """.stripIndent()
             }
         }
