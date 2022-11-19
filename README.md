@@ -1,7 +1,6 @@
 <div>
     <h1>Final project - Oren Gadamo - Dev8200 DevOps Bootcamp</h1>
     <strong>
-    <p>Let me to inturduce to my final project for the Bynet and 8200 course!</p>
     <p>
         The main idea is based on an output from <a href="https://www.webex.com/">"Webex"</a>        application that analyzed the attendance of the students in each lesson.
         In addition, the application calculated the length of time the students were in class, the number of devices they connected to, the type of devices, emails, etc.
