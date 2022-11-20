@@ -8,10 +8,10 @@ MACHINE=$1
 IP_PUBLIC='ec2-44-201-110-248.compute-1.amazonaws.com'
 if [ "$MACHINE" == 'test' ];
  then 
-     IP_PUBLIC='ec2-44-201-110-248.compute-1.amazonaws.com'
+     IP_PUBLIC='ec2-35-171-157-87.compute-1.amazonaws.com'
 	 echo "Deploying to test start"
 else 
-     IP_PUBLIC='ec2-54-163-62-126.compute-1.amazonaws.com'
+     IP_PUBLIC='ec2-54-174-199-225.compute-1.amazonaws.com'
 	 echo "Deploying to production start"
 
 fi
