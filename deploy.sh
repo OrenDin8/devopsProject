@@ -20,13 +20,16 @@ scp -i "Devops-course.pem" -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/.env
 
 ssh -i "Devops-course.pem" -o StrictHostKeyChecking=no ec2-user@${IP_PUBLIC} "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 30"
 
-if [ "$MACHINE" == "test" ];
- then
-     if curl -I "http://127.0.0.1:5000" 2>&1 | grep -w "200\|301" ; then
-       	echo "page is working"
-   	else
-       	echo "page is down"
-   	fi
+HTTP_CODE_STATUS=`curl -o /dev/null -s -w "%{http_code}\n" http://localhost:5000/`	
+if [ "$MACHINE" == "test" ];	     
+then
+	if [ $HTTP_CODE_STATUS -eq 200 ];
+	then
+		echo "The web is up"
+	else
+		echo "The web is down"
+		exit 1
+	fi
 fi
 echo "Deploying to $MACHINE server succedded"
 
