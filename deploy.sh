@@ -15,11 +15,11 @@ else
 	 echo "Deploying to production start"
 fi
 echo "Copying the docker compose file to the machine"
-scp -i Devops-course.pem "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@${IP_PUBLIC}:~
-scp -i Devops-course.pem "$JENKINS_WORKSPACE"/.env ec2-user@${IP_PUBLIC}:~
+scp -i "Devops-course.pem" "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@${IP_PUBLIC}:~
+scp -i "Devops-course.pem" "$JENKINS_WORKSPACE"/.env ec2-user@${IP_PUBLIC}:~
 
 
-ssh -i "/home/ec2-user/Devops-course.pem" ec2-user@${IP_PUBLIC} "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 30"
+ssh -i "Devops-course.pem" ec2-user@${IP_PUBLIC} "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 30"
 
 if [ "$MACHINE" == "test" ];
  then
