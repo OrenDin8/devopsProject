@@ -6,9 +6,7 @@
         In addition, the application calculated the length of time the students were in class, the number of devices they connected to, the type of devices, emails, etc.
         The task was to filter a table of all the students with the following details:
         The student's name, the accumulated number of minutes and the general percentage of attendance in all classes.
-          
-        In this project, I built Dockerfile with app.py and then dockerized it with docker-compose include the connection to mysql container,
-        Then deploy 3 EC2 Instances on AWS to simulte real work flow: Jenkins , Test , Production.
+        In this project, I built Dockerfile with app.py and then dockerized it with docker-compose include the connection to mysql container, Then deploy 3 EC2 Instances on AWS to simulte real work flow: Jenkins , Test , Production.
         
         </p>
     </strong>
