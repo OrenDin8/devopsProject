@@ -14,10 +14,8 @@
 
 <h3>In order to build it I used several Technologies:</h3>
 <li>Python3 </li>
-<li>CSS3 </li> 
 <li>Bootstrap </li>
 <li>HTML + Jinja2 </li>
-<li>Javascript </li>
 <li>MYSQL </li>
 <li>Flask </li>
 <li>Docker </li>
