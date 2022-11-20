@@ -13,11 +13,10 @@ if [ "$MACHINE" == 'test' ];
 else 
      IP_PUBLIC='ec2-54-174-199-225.compute-1.amazonaws.com'
 	 echo "Deploying to production start"
-
 fi
 echo "Copying the docker compose file to the machine"
-scp -i "/home/ec2-user/Devops-course.pem" "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@${IP_PUBLIC}:~
-scp -i "/home/ec2-user/Devops-course.pem" "$JENKINS_WORKSPACE"/.env ec2-user@${IP_PUBLIC}:~
+scp -i Devops-course.pem "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@${IP_PUBLIC}:~
+scp -i Devops-course.pem "$JENKINS_WORKSPACE"/.env ec2-user@${IP_PUBLIC}:~
 
 
 ssh -i "/home/ec2-user/Devops-course.pem" ec2-user@${IP_PUBLIC} "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 30"
