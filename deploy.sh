@@ -19,8 +19,16 @@ echo "Copying the docker compose file to the machine"
 scp -i "Devops-course.pem"  -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@${IP_PUBLIC}:~
 scp -i "Devops-course.pem" -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/.env ec2-user@${IP_PUBLIC}:~
 
-ssh -i "Devops-course.pem" -o StrictHostKeyChecking=no ec2-user@${IP_PUBLIC} "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 20 && curl http://localhost:5000"
-
+ssh -i "Devops-course.pem" -o StrictHostKeyChecking=no ec2-user@${IP_PUBLIC} "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 20"
+if [ "$MACHINE" == "test" ];
+then
+     if "curl -I "http://127.0.0.1:5000" 2>&1 | grep -w "200\|301" ;
+     then
+       	echo "The website is up "
+   	 else
+       	echo "The website is down"
+   	 fi
+fi
 echo "Deploying to $MACHINE server succedded"
 
 
