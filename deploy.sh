@@ -5,21 +5,26 @@
 HOME_DIR="/home/ec2-user"
 JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
-IP_PUBLIC='ec2-3-86-12-33.compute-1.amazonaws.com'
+TEST=172.31.85.71
+PRODUCTION=172.31.18.39
+IP_PUBLIC=''
+
 if [ "$MACHINE" == 'test' ];
  then 
-     IP_PUBLIC='ec2-3-86-12-33.compute-1.amazonaws.com'
-	 echo "Deploying to test start"
+     IP_PUBLIC=TEST
+	 echo "Deploying to test "
 else 
-     IP_PUBLIC='ec2-34-236-143-158.compute-1.amazonaws.com'
-	 echo "Deploying to production start"
+     IP_PUBLIC=PRODUCTION
+	 echo "Deploying to production "
 fi
-echo "Copying the docker compose file to the machine"
 
-scp -p 22 -i "Devops-course.pem"  -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@$MACHINE:~
-scp -p 22 -i "Devops-course.pem" -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/.env ec2-user@$MACHINE:~
+echo "Copying the docker-compose file to the machine"
+scp -i "Devops-course.pem"  -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@$IP_PUBLIC:~
 
-ssh -p 22 -i "Devops-course.pem" -o StrictHostKeyChecking=no ec2-user@$MACHINE "cd /home/ec2-user/ && docker pull orendin8/devops_project:latest && docker-compose up --no-build -d && sleep 20"
+echo "Copying the .ENV file to the machine"
+scp -i "Devops-course.pem" -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/.env ec2-user@$IP_PUBLIC:~
+
+ssh -i "Devops-course.pem" -o StrictHostKeyChecking=no ec2-user@$IP_PUBLIC "cd /home/ec2-user/&& docker-compose up --no-build -d && sleep 20"
 
 if [ "$MACHINE" == "test" ];
  then
@@ -30,6 +35,6 @@ if [ "$MACHINE" == "test" ];
 	 echo "test PASSED successfully."
 	else
 	 echo "Test Failed"
-	 fi
+	fi
 fi
 echo "Deploying to $MACHINE server succedded"
