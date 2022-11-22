@@ -19,10 +19,10 @@ else
 fi
 
 echo "Copying the docker-compose file to the machine"
-scp -i "Devops-course.pem"  -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/docker-compose.yml \ ec2-user@$IP_PUBLIC:~
+scp -i "Devops-course.pem"  -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/docker-compose.yml ec2-user@$IP_PUBLIC:~
 
 echo "Copying the .ENV file to the machine"
-scp -i "Devops-course.pem" -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/.env \ ec2-user@$IP_PUBLIC:~
+scp -i "Devops-course.pem" -o StrictHostKeyChecking=no "$JENKINS_WORKSPACE"/.env ec2-user@$IP_PUBLIC:~
 
 ssh -i "Devops-course.pem" -o StrictHostKeyChecking=no ec2-user@$IP_PUBLIC "cd /home/ec2-user/&& docker-compose up --no-build -d && sleep 20"
 
