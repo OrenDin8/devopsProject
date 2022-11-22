@@ -5,13 +5,13 @@
 HOME_DIR="/home/ec2-user"
 JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
-IP_PUBLIC='ec2-35-171-157-87.compute-1.amazonaws.com'
+IP_PUBLIC='ec2-3-86-12-33.compute-1.amazonaws.com'
 if [ "$MACHINE" == 'test' ];
  then 
-     IP_PUBLIC='ec2-35-171-157-87.compute-1.amazonaws.com'
+     IP_PUBLIC='ec2-3-86-12-33.compute-1.amazonaws.com'
 	 echo "Deploying to test start"
 else 
-     IP_PUBLIC='ec2-54-174-199-225.compute-1.amazonaws.com'
+     IP_PUBLIC='ec2-34-236-143-158.compute-1.amazonaws.com'
 	 echo "Deploying to production start"
 fi
 echo "Copying the docker compose file to the machine"
