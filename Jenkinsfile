@@ -49,5 +49,12 @@ pipeline {
                    """.stripIndent()
             }
         }
+	stage('Clean up') {
+	    steps {
+		 sh """
+		     docker image prune -a -f
+		    """.stripIndent()
+	    }
+	}
     }
  }
