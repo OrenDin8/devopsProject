@@ -5,8 +5,8 @@
 HOME_DIR="/home/ec2-user"
 JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
-TEST=172.31.85.71
-PRODUCTION=172.31.18.39
+TEST='ec2-3-86-12-33.compute-1.amazonaws.com'
+PRODUCTION='ec2-34-236-143-158.compute-1.amazonaws.com'
 IP_PUBLIC=''
 
 if [ "$MACHINE" == 'test' ];
