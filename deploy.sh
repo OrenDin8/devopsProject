@@ -7,14 +7,14 @@ JENKINS_WORKSPACE="/var/lib/jenkins/workspace/Final_Project"
 MACHINE=$1
 TEST='ec2-3-86-12-33.compute-1.amazonaws.com'
 PRODUCTION='ec2-34-236-143-158.compute-1.amazonaws.com'
-IP_PUBLIC=''
+IP_PUBLIC='ec2-34-236-143-158.compute-1.amazonaws.com'
 
 if [ "$MACHINE" == 'test' ];
  then 
-     IP_PUBLIC=TEST
+     IP_PUBLIC='ec2-3-86-12-33.compute-1.amazonaws.com'
 	 echo "Deploying to test "
 else 
-     IP_PUBLIC=PRODUCTION
+     IP_PUBLIC='ec2-34-236-143-158.compute-1.amazonaws.com'
 	 echo "Deploying to production "
 fi
 
