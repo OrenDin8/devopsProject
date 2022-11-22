@@ -23,7 +23,7 @@ ssh -i "Devops-course.pem" -o StrictHostKeyChecking=no ec2-user@${IP_PUBLIC} "cd
 
 if [ "$MACHINE" == "test" ];
  then
- 	status=curl --write-out "%{http_code}\n" --silent --output /dev/null "http://127.0.0.1:5000"
+ 	status=`curl --write-out "%{http_code}\n" --silent --output /dev/null "http://127.0.0.1:5000"`
 	if [ "$status" == "200" ];
 	 then         
 	 	echo "test PASSED successfully.";
