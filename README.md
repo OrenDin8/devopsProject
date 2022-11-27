@@ -15,7 +15,7 @@
 <h3>In order to build it I used several Technologies:</h3>
 <div>
   <ul>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original-wordmark.svg" title="PYTHON" alt="CSS" width="40" height="40"/>&nbsp;	 
+    <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original-wordmark.svg" title="PYTHON" alt="CSS" width="50" height="50"/>&nbsp;	 
 	<img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original-wordmark.svg" title="DOCKER" alt="CSS" width="40" height="40"/>&nbsp;   	 
     <img src="https://github.com/devicons/devicon/blob/master/icons/flask/flask-original-wordmark.svg" title="FLASK" alt="CSS" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg" title="LINUX" alt="CSS" width="40" height="40"/>&nbsp;
